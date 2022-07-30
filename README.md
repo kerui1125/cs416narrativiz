@@ -1,2 +1,2 @@
-# cs416narrativiz.github.io
+# cs416narrativiz
 UIUC CS416 narrative visualization project
