@@ -1,13 +1,51 @@
 <!doctype html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>UIUC CS416 Narrative Viz Project</title>
-</head>
-<body>
-    <!-- External JS libraries -->
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <!-- Custom JS -->
-    <script src="main.js"></script>
-</body>
+    <head>
+        <meta charset="utf-8">
+        <title>Narrative Viz Project</title>
+        <style>
+            .state {
+                fill: #e3e3e3;
+                stroke: #333;
+                stroke-width: 0.5;
+            }
+            .bar {
+                fill: gold;
+            }
+            #us_map {
+                width: 50%;
+                display: inline-block;
+                float: left;
+            }
+            #tooltip {
+                width: 50%;
+                display: inline-block;
+                float: left;
+            }
+            h1 {
+                text-align: center;
+            }
+            #highlight {
+                opacity: 0;
+                position: absolute;
+                text-align: center;
+                font-weight: bold;
+                font-size: larger;
+                background: white;
+                border-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <header><h1>US University CS Faculty Map</h1></header>
+        <div id="us_map"></div>
+        <div id="tooltip"></div>
+        <div id="highlight"></div>
+        <!-- External JS libraries -->
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <script src="https://unpkg.com/topojson-client@3"></script>
+
+        <!-- Main JS file -->
+        <script src="main.js"></script>
+    </body>
 </html>
