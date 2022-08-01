@@ -13,14 +13,12 @@
                 fill: gold;
             }
             #us_map {
-                width: 50%;
                 display: inline-block;
                 float: left;
             }
             #tooltip {
-                width: 50%;
                 display: inline-block;
-                float: left;
+                float: right;
             }
             h1 {
                 text-align: center;
@@ -34,13 +32,40 @@
                 background: white;
                 border-color: red;
             }
+            #min_selector {
+                float: left;
+            }
+            #max_selector {
+                float: right;
+            }
+            #selector {
+                margin-bottom: 70px;
+            }
         </style>
     </head>
     <body>
         <header><h1>US University CS Faculty Map</h1></header>
-        <div id="us_map"></div>
-        <div id="tooltip"></div>
-        <div id="highlight"></div>
+
+        <!-- Due to the restriction of JS library usage, (aka d3-simple-slider cannot be used)-->
+        <!-- we have to use plain html <input> to implement dual range slider -->
+        <!-- Code reference: https://bl.ocks.org/martinjc/f621fbc6a5b795bf01f4c0be0bee5093 -->
+        <div id="selector">
+            <div id="min_selector">
+                <label>Please select min value of the range:</label>
+                <input type="range" min=0 max=188 step=1 id="min_num" value=0 oninput="selected_min_num.value = min_num.value">
+                <output name="selected_min_num" id="selected_min_num">0</output>
+            </div>
+            <div id="max_selector">
+                <label>Please select max value of the range:</label>
+                <input type="range" min=0 max=188 step=1 id="max_num" value=188 oninput="selected_max_num.value = max_num.value">
+                <output name="selected_max_num" id="selected_max_num">188</output>
+            </div>
+        </div>
+        <div id="main">
+            <div id="us_map"></div>
+            <div id="tooltip"></div>
+            <div id="highlight"></div>
+        </div>
         <!-- External JS libraries -->
         <script src="https://d3js.org/d3.v7.min.js"></script>
         <script src="https://unpkg.com/topojson-client@3"></script>
